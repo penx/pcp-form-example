@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import TemperatureInput from './TemperatureInput';
 
-import toCelsius from '../util/toCelsius';
-import toFahrenheit from '../util/toFahrenheit';
-import tryConvert from '../util/tryConvert';
+import toCelsius from '../../util/toCelsius';
+import toFahrenheit from '../../util/toFahrenheit';
+import tryConvert from '../../util/tryConvert';
 
 class MixedTemperatureInput extends React.Component {
   handleCelsiusChange = (value) => {
