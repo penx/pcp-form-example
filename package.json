@@ -1,4 +1,10 @@
 {
+	"private": true,
+	"name": "pcm-form-example",
+	"scripts": {
+		"prepare": "lerna bootstrap",
+		"start": "cd packages/web-server && npm start"
+	},
 	"devDependencies": {
 		"babel-eslint": "^8.0.2",
 		"eslint": "^4.11.0",

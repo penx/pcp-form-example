@@ -1,3 +1,5 @@
 node_modules
 /packages/presentational-components/lib
 /packages/application/lib
+/.DS_Store
+.DS_Store
