@@ -3,8 +3,14 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import manageState from 'manage-state';
 
-import TemperatureInput from '../components/TemperatureInput';
-import MixedTemperatureInput from '../components/MixedTemperatureInput';
+import TemperatureInput from '../components/input/TemperatureInput';
+import MixedTemperatureInput from '../components/input/MixedTemperatureInput';
+
+const ManagedTemperatureInput = manageState(TemperatureInput, {
+  propsToState: ['temperature'],
+  singleValue: true,
+  changeCallback: 'onTemperatureChange',
+});
 
 const ManagedMixedTemperatureInput = manageState(MixedTemperatureInput, {
   propsToState: ['temperature'],
@@ -12,8 +18,8 @@ const ManagedMixedTemperatureInput = manageState(MixedTemperatureInput, {
 });
 
 storiesOf('TemperatureInput', module)
-  .add('Celsius', () => <TemperatureInput scale="c" />)
-  .add('Fahrenheit', () => <TemperatureInput scale="f" />);
+  .add('Celsius', () => <ManagedTemperatureInput scale="c" />)
+  .add('Fahrenheit', () => <ManagedTemperatureInput scale="f" />);
 
 storiesOf('MixedTemperatureInput', module)
   .add('default', () => <ManagedMixedTemperatureInput />);
