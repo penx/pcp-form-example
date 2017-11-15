@@ -1,0 +1,11 @@
+{
+  "name": "presentational-components",
+  "version": "0.0.1",
+  "description": "Example of building forms in a presentational component module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alasdair McLeay",
+  "license": "ISC"
+}
