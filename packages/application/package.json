@@ -1,0 +1,29 @@
+{
+  "name": "application",
+  "version": "0.0.1",
+  "description": "Example of building forms in a presentational component module",
+  "main": "lib/App.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel --source-maps -d lib/ src/",
+    "watch": "babel --source-maps -d lib/ src/ --watch",
+    "prepare": "npm run build"
+  },
+  "author": "Alasdair McLeay",
+  "license": "ISC",
+  "dependencies": {
+    "prop-types": "^15.6.0",
+    "react": "^16.1.1",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-form": "^7.1.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1"
+  }
+}
