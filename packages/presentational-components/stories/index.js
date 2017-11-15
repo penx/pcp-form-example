@@ -3,8 +3,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import manageState from 'manage-state';
 
-import TemperatureInput from '../components/input/TemperatureInput';
-import MixedTemperatureInput from '../components/input/MixedTemperatureInput';
+import TemperatureInput from '../src/components/input/TemperatureInput';
+import MixedTemperatureInput from '../src/components/input/MixedTemperatureInput';
 
 const ManagedTemperatureInput = manageState(TemperatureInput, {
   propsToState: ['temperature'],
@@ -13,7 +13,7 @@ const ManagedTemperatureInput = manageState(TemperatureInput, {
 });
 
 const ManagedMixedTemperatureInput = manageState(MixedTemperatureInput, {
-  propsToState: ['temperature'],
+  propsToState: ['value'],
   singleValue: true,
 });
 

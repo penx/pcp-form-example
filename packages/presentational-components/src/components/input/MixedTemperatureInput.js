@@ -9,17 +9,15 @@ import tryConvert from '../../util/tryConvert';
 
 class MixedTemperatureInput extends React.Component {
   handleCelsiusChange = (value) => {
-    console.log('handleCelsiusChange');
-    this.props.onChange({ scale: 'c', value });
+    this.props.onChange && this.props.onChange({ scale: 'c', value });
   }
 
   handleFahrenheitChange = (value) => {
-    console.log('handleFahrenheitChange');
-    this.props.onChange({ scale: 'f', value });
+    this.props.onChange && this.props.onChange({ scale: 'f', value });
   }
 
   render() {
-    const { temperature } = this.props;
+    const { value: temperature } = this.props;
     const celsius = temperature.scale === 'f' ? tryConvert(temperature.value, toCelsius) : temperature.value;
     const fahrenheit = temperature.scale === 'c' ? tryConvert(temperature.value, toFahrenheit) : temperature.value;
 
@@ -41,12 +39,12 @@ class MixedTemperatureInput extends React.Component {
 }
 
 MixedTemperatureInput.propTypes = {
-  temperature: PropTypes.shape(),
+  value: PropTypes.shape(),
   onChange: PropTypes.func.isRequired,
 };
 
 MixedTemperatureInput.defaultProps = {
-  temperature: {
+  value: {
     scale: "c",
     value: 0,
   }
