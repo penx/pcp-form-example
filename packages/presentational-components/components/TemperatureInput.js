@@ -1,10 +1,11 @@
 // from https://reactjs.org/docs/lifting-state-up.html
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const scaleNames = {
   c: 'Celsius',
-  f: 'Fahrenheit'
+  f: 'Fahrenheit',
 };
 
 class TemperatureInput extends React.Component {
@@ -18,16 +19,23 @@ class TemperatureInput extends React.Component {
   }
 
   render() {
-    const temperature = this.props.temperature;
-    const scale = this.props.scale;
+    const { temperature, scale } = this.props;
     return (
       <fieldset>
         <legend>Enter temperature in {scaleNames[scale]}:</legend>
-        <input value={temperature}
-               onChange={this.handleChange} />
+        <input
+          value={temperature}
+          onChange={this.handleChange}
+        />
       </fieldset>
     );
   }
 }
 
-export default TemperatureInput
+TemperatureInput.propTypes = {
+  temperature: PropTypes.string.isRequired,
+  scale: PropTypes.string.isRequired,
+  onTemperatureChange: PropTypes.func.isRequired,
+};
+
+export default TemperatureInput;
