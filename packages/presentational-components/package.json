@@ -3,11 +3,14 @@
   "version": "0.0.1",
   "description": "Example of building forms in a presentational component module",
   "main": "lib/index.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "prepare": "babel --source-maps -d lib/ src/"
+    "build": "babel --source-maps -d lib/ src/",
+    "watch": "babel --source-maps -d lib/ src/ --watch",
+    "prepare": "npm run build"
   },
   "author": "Alasdair McLeay",
   "license": "ISC",
