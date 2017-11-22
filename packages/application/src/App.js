@@ -5,11 +5,15 @@ import { Provider } from 'react-redux';
 
 import store from './store';
 
-import Calculator from './forms/Calculator';
+import ExampleForm from './forms/ExampleForm';
 
 class App extends React.Component {
   handleSubmit = (formState) => {
-    this.setState({ lastSubmit: `${formState.temperature.value}º${formState.temperature.scale.toUpperCase()}` });
+    if (formState.temperature && formState.temperature.value && formState.temperature.scale) {
+      this.setState({ lastSubmit: `${formState.temperature.value}º${formState.temperature.scale.toUpperCase()}` });
+    } else {
+      this.setState({ lastSubmit: '' });
+    }
   }
 
   render() {
@@ -17,10 +21,10 @@ class App extends React.Component {
       <Provider store={store}>
         <Panel>
           <Panel title="PCM Form Example - Application">
-            <Calculator onSubmit={this.handleSubmit} />
+            <ExampleForm onSubmit={this.handleSubmit} />
           </Panel>
           {this.state && this.state.lastSubmit &&
-            <Panel title="Last Submit">
+            <Panel title="Last Valid Submit">
               {this.state.lastSubmit}
             </Panel>}
         </Panel>

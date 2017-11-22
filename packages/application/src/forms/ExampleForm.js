@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Field, reduxForm } from 'redux-form';
-
+import { Field, reduxForm, FormSection } from 'redux-form';
 
 import { MixedTemperatureField, Panel, Button, Form } from 'presentational-components';
 
-const SimpleForm = (props) => {
+import AddressFieldset from '../fieldsets/AddressFieldset';
+
+const ExampleForm = (props) => {
   const {
     handleSubmit,
     pristine,
@@ -16,6 +17,9 @@ const SimpleForm = (props) => {
   return (
     <Panel title="A form in a panel">
       <Form onSubmit={handleSubmit}>
+        <FormSection name="address">
+          <AddressFieldset />
+        </FormSection>
         <Field
           name="temperature"
           component={MixedTemperatureField}
@@ -30,7 +34,8 @@ const SimpleForm = (props) => {
   );
 };
 
-SimpleForm.propTypes = {
+ExampleForm.propTypes = {
+  ...reduxForm,
   handleSubmit: PropTypes.func.isRequired,
   pristine: PropTypes.bool.isRequired,
   reset: PropTypes.func.isRequired,
@@ -38,5 +43,5 @@ SimpleForm.propTypes = {
 };
 
 export default reduxForm({
-  form: 'calculator',
-})(SimpleForm);
+  form: 'example',
+})(ExampleForm);
