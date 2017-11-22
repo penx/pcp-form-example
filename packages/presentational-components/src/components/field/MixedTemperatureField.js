@@ -1,5 +1,10 @@
 import React from 'react';
-
+import { fieldPropTypes } from '../../propTypes';
 import MixedTemperatureInput from '../input/MixedTemperatureInput';
 
-export default props => <MixedTemperatureInput {...props.input} />;
+const MixedTemperatureField = props => <MixedTemperatureInput {...props.input} />;
+MixedTemperatureField.propTypes = {
+  ...fieldPropTypes,
+};
+
+export default MixedTemperatureField;

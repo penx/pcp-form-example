@@ -1,5 +1,12 @@
 import React from 'react';
 
 import TemperatureInput from '../input/TemperatureInput';
+import { fieldPropTypes } from '../../propTypes';
 
-export default props => <TemperatureInput {...props.input} />;
+const TemperatureField = props => <TemperatureInput {...props.input} />;
+
+TemperatureField.propTypes = {
+  ...fieldPropTypes,
+};
+
+export default TemperatureField;

@@ -9,11 +9,11 @@ import tryConvert from '../../util/tryConvert';
 
 class MixedTemperatureInput extends React.Component {
   handleCelsiusChange = (value) => {
-    this.props.onChange && this.props.onChange({ scale: 'c', value });
+    if (this.props.onChange) this.props.onChange({ scale: 'c', value });
   }
 
   handleFahrenheitChange = (value) => {
-    this.props.onChange && this.props.onChange({ scale: 'f', value });
+    if (this.props.onChange) this.props.onChange({ scale: 'f', value });
   }
 
   render() {
@@ -39,15 +39,18 @@ class MixedTemperatureInput extends React.Component {
 }
 
 MixedTemperatureInput.propTypes = {
-  value: PropTypes.shape(),
+  value: PropTypes.shape({
+    value: PropTypes.string,
+    scale: PropTypes.string,
+  }),
   onChange: PropTypes.func.isRequired,
 };
 
 MixedTemperatureInput.defaultProps = {
   value: {
-    scale: "c",
+    scale: 'c',
     value: 0,
-  }
+  },
 };
 
 export default MixedTemperatureInput;
