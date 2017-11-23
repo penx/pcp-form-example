@@ -20,7 +20,7 @@ class App extends React.Component {
     return (
       <Provider store={store}>
         <Panel>
-          <Panel title="PCM Form Example - Application">
+          <Panel title="PCP Form Example - Application">
             <ExampleForm onSubmit={this.handleSubmit} />
           </Panel>
           {this.state && this.state.lastSubmit &&

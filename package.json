@@ -1,6 +1,6 @@
 {
 	"private": true,
-	"name": "pcm-form-example",
+	"name": "pcp-form-example",
 	"scripts": {
 		"prepare": "lerna bootstrap",
 		"start": "cd packages/web-server && npm start",
