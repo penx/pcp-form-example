@@ -3,7 +3,7 @@
 	"name": "pcp-form-example",
 	"scripts": {
 		"prepare": "lerna bootstrap",
-		"start": "cd packages/web-server && npm start",
+		"start": "lerna link && cd packages/web-server && npm start",
 		"storybook": "cd packages/presentational-components && npm start"
 	},
 	"devDependencies": {
