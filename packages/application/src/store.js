@@ -1,8 +1,8 @@
 import { createStore, combineReducers } from 'redux';
-import { reducer as reduxFormReducer } from 'redux-form';
+import { reducer as form } from 'redux-form';
 
 const reducer = combineReducers({
-  form: reduxFormReducer, // mounted under "form"
+  form,
 });
 const store = (window.devToolsExtension
   ? window.devToolsExtension()(createStore)
