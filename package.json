@@ -2,6 +2,7 @@
 	"private": true,
 	"name": "pcp-form-example",
 	"scripts": {
+		"build": "lerna run build",
 		"prepare": "lerna bootstrap",
 		"start": "lerna bootstrap && cd packages/web-server && npm start",
 		"storybook": "cd packages/presentational-components && npm start"

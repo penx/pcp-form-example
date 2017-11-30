@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Field, reduxForm, FormSection } from 'redux-form';
+import Collapse from 'react-collapse';
 
-import { MixedTemperatureField, Panel, Button, Form } from 'presentational-components';
+import { MixedTemperatureField, Panel, Button, Form, TestField } from 'presentational-components';
 
 import AddressFieldset from '../fieldsets/AddressFieldset';
 
@@ -20,6 +21,10 @@ const ExampleForm = (props) => {
         <FormSection name="address">
           <AddressFieldset />
         </FormSection>
+        <Collapse isOpened>
+          Collapse
+          <TestField />
+        </Collapse>
         <Field
           name="temperature"
           component={MixedTemperatureField}

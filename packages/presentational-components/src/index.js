@@ -11,3 +11,5 @@ export MixedTemperatureField from './components/field/MixedTemperatureField';
 export TemperatureField from './components/field/TemperatureField';
 export TextField from './components/field/TextField';
 export PostcodeField from './components/field/PostcodeField';
+
+export TestField from './components/TestField';

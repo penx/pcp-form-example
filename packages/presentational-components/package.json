@@ -20,7 +20,10 @@
   "peerDependencies": {
     "prop-types": "^15.6.0",
     "react": "^16.1.1",
-    "react-dom": "^16.1.1"
+    "react-dom": "^16.1.1",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-form": "^7.1.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -38,6 +41,9 @@
     "glamor": "^2.20.40",
     "prop-types": "^15.6.0",
     "react": "^16.1.1",
-    "react-dom": "^16.1.1"
+    "react-dom": "^16.1.1",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-form": "^7.1.2"
   }
 }
