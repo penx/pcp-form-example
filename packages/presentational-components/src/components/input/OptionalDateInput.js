@@ -1,54 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import multiInputInput from '../../hoc/multiInputInput';
+
 class OptionalDateInput extends React.Component {
-  getInputs = () => [this.dayInput, this.monthInput, this.yearInput]
+  inputs = {}
 
-  mergeValueFromEvent = (e, key) => ({
-    ...this.props.value,
-    [key]: e.target.value,
-  })
-
-  handleChange(e, key) {
-    this.props.onChange(this.mergeValueFromEvent(e, key));
-  }
-
-  handleBlur = (e, key) => {
-    const inputs = this.getInputs();
-    if (!inputs.some(input => e.relatedTarget === input)) {
-      this.props.onBlur(this.mergeValueFromEvent(e, key));
-    }
-  }
-
-  handleFocus = (e, key) => {
-    const inputs = this.getInputs();
-    if (!inputs.some(input => e.relatedTarget === input)) {
-      this.props.onFocus(this.mergeValueFromEvent(e, key));
-    }
-  }
-
-  renderInput(label, key, value, inputRef) {
+  renderInput(label, key) {
     return (
       <label>
         {label}:
         <input
-          value={value || ''}
-          onChange={e => this.handleChange(e, key)}
-          onBlur={e => this.handleBlur(e, key)}
-          onFocus={e => this.handleFocus(e, key)}
-          ref={(input) => { this[inputRef] = input; }}
+          value={(this.props.value && this.props.value[key]) || ''}
+          onChange={e => this.props.onChange(e, key)}
+          onBlur={e => this.props.onBlur(e, key)}
+          onFocus={e => this.props.onFocus(e, key)}
+          ref={(input) => { this.inputs[key] = input; this.props.refs(this.inputs); }}
         />
       </label>);
   }
 
   render() {
-    const { value: { day, month, year } = {} } = this.props;
-
     return (
       <div>
-        {this.renderInput('Day', 'day', day, 'dayInput')}
-        {this.renderInput('Month', 'month', month, 'monthInput')}
-        {this.renderInput('Year', 'year', year, 'yearInput')}
+        {this.renderInput('Day', 'day')}
+        {this.renderInput('Month', 'month')}
+        {this.renderInput('Year', 'year')}
       </div>
     );
   }
@@ -60,6 +37,7 @@ OptionalDateInput.propTypes = {
     month: PropTypes.number,
     year: PropTypes.number,
   }),
+  refs: PropTypes.func,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
@@ -71,9 +49,11 @@ OptionalDateInput.defaultProps = {
     month: null,
     year: null,
   },
+  refs: () => null,
   onChange: () => null,
   onBlur: () => null,
   onFocus: () => null,
 };
 
-export default OptionalDateInput;
+// This component is dependent on multiInputInput HOC so we always export with HOC
+export default multiInputInput(OptionalDateInput);
